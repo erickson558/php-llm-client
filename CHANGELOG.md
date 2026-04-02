@@ -1,5 +1,12 @@
 # Changelog
 
+## V0.2.2
+
+- compactación de la GUI para reducir espacio desperdiciado en desktop
+- eliminación del modo `messages_json` y del bloque `Raw JSON` en la interfaz principal
+- reorganización del formulario para usar mejor el ancho disponible con una columna lateral más corta
+- documentación sincronizada con el nuevo flujo guiado de la cabina
+
 ## V0.2.1
 
 - corrección del modo claro con cambio de tema más robusto basado en `data-theme`

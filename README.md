@@ -1,6 +1,6 @@
 # PHP LLM Client
 
-Versión actual: `V0.2.1`
+Versión actual: `V0.2.2`
 
 Cliente web en PHP para consultar modelos de lenguaje desde una sola interfaz, con soporte para:
 
@@ -15,8 +15,8 @@ Esta aplicación te permite:
 
 - seleccionar un proveedor y autocompletar su Base URL oficial
 - definir modelo, API key y parámetros básicos
-- enviar `system + prompt` o un arreglo `messages_json`
-- consumir el backend desde navegador o por `POST` JSON
+- enviar `system + prompt` desde una GUI compacta y guiada
+- consumir el backend desde navegador o por `POST`
 - alternar entre modo claro y modo oscuro con persistencia local y contraste más claro en el tema light
 - usar una interfaz inspirada en una armadura de Iron Man con estilo HUD
 
@@ -29,8 +29,8 @@ El proyecto está pensado para el entorno actual de EasyPHP y PHP 5.4, por eso e
 - interfaz futurista con efectos visuales y animaciones suaves
 - tematización tipo Iron Man con reactor visual y paleta blindada rojo/oro
 - modo claro y modo oscuro persistido en `localStorage` con cambio de tema más robusto
-- cockpit reorganizado por pasos para separar conexión, ajustes y contenido
-- activación visual del modo `messages_json` para evitar mezclarlo con `System + Prompt`
+- cockpit más compacto para aprovechar mejor el espacio horizontal
+- flujo guiado simplificado sin modo `messages_json` en la GUI
 - catálogo central de proveedores oficiales
 - cliente backend con adaptadores para `anthropic` y `openai_compatible`
 - transporte HTTP con fallback a `curl.exe` en Windows

@@ -23,7 +23,6 @@ $form = array(
     'api_key' => '',
     'system' => 'Eres un asistente útil y directo.',
     'prompt' => 'Explica brevemente cómo funciona este cliente PHP.',
-    'messages_json' => '',
     'temperature' => '0.2',
     'max_tokens' => '800',
     'timeout' => '120',
@@ -73,12 +72,8 @@ function build_request_from_form($form, $providerUiCatalog)
         $request['api_key'] = $form['api_key'];
     }
 
-    if ($form['messages_json'] !== '') {
-        $request['messages_json'] = $form['messages_json'];
-    } else {
-        $request['system'] = $form['system'];
-        $request['prompt'] = $form['prompt'];
-    }
+    $request['system'] = $form['system'];
+    $request['prompt'] = $form['prompt'];
 
     return $request;
 }
@@ -161,18 +156,18 @@ function pretty_json($value)
         html[data-theme="light"] body:before{background-image:linear-gradient(rgba(184,115,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(184,115,0,.05) 1px,transparent 1px);opacity:.55}
         body:after{height:150px;top:-180px;left:-10%;right:-10%;background:linear-gradient(180deg,transparent 0%,rgba(125,233,255,.14) 50%,transparent 100%);filter:blur(18px);animation:scanMove 8s linear infinite}
         html[data-theme="light"] body:after{background:linear-gradient(180deg,transparent 0%,rgba(184,115,0,.14) 50%,transparent 100%)}
-        .shell{max-width:1280px;margin:0 auto;padding:28px 18px 42px;position:relative}
+        .shell{max-width:1380px;margin:0 auto;padding:22px 16px 34px;position:relative}
         .shell:before,.shell:after{content:"";position:fixed;pointer-events:none;border-radius:999px;filter:blur(12px);opacity:.5}
         .shell:before{width:260px;height:260px;left:-70px;top:120px;background:radial-gradient(circle,rgba(125,233,255,.28),transparent 70%)}
         .shell:after{width:300px;height:300px;right:-90px;top:58%;background:radial-gradient(circle,rgba(215,61,47,.22),transparent 72%)}
         html[data-theme="light"] .shell:before{background:radial-gradient(circle,rgba(255,204,98,.22),transparent 68%)}
         html[data-theme="light"] .shell:after{background:radial-gradient(circle,rgba(15,144,179,.16),transparent 72%)}
         .hero,.panel,.side,.form-section,.action-bar{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
-        .hero{border-radius:30px;padding:28px;margin-bottom:22px;background:linear-gradient(135deg,rgba(88,17,20,.85),rgba(34,9,14,.92));clip-path:polygon(0 0,97% 0,100% 12%,100% 100%,3% 100%,0 88%)}
+        .hero{border-radius:28px;padding:22px 24px;margin-bottom:18px;background:linear-gradient(135deg,rgba(88,17,20,.85),rgba(34,9,14,.92));clip-path:polygon(0 0,97% 0,100% 12%,100% 100%,3% 100%,0 88%)}
         html[data-theme="light"] .hero{background:linear-gradient(135deg,rgba(255,247,239,.98),rgba(255,252,247,.96))}
         .hero:before,.panel:before,.side:before,.form-section:before,.action-bar:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.06),transparent 40%);pointer-events:none}
         .hero:after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,204,98,.18);border-radius:24px;clip-path:polygon(0 0,98% 0,100% 11%,100% 100%,2% 100%,0 89%)}
-        .hero-top,.hero-grid,.layout,.stats,.response-meta,.command-flow,.section-grid{display:grid;gap:16px}
+        .hero-top,.hero-grid,.layout,.stats,.response-meta,.command-flow,.section-grid{display:grid;gap:14px}
         .hero-top{grid-template-columns:1fr auto;align-items:center}
         .badges{display:flex;flex-wrap:wrap;gap:10px}
         .badge,.chip,.theme-pill,.section-kicker{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.05);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
@@ -181,10 +176,10 @@ function pretty_json($value)
         .theme-btn,.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;color:var(--text);font-weight:700;border:1px solid var(--border);transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
         .theme-btn{border-radius:999px;min-height:46px;padding:0 16px;background:linear-gradient(135deg,rgba(255,204,98,.18),rgba(125,233,255,.09))}
         .theme-btn:hover,.button:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(255,204,98,.16)}
-        .hero-grid{grid-template-columns:1.2fr .8fr}
+        .hero-grid{grid-template-columns:1.35fr .95fr}
         .hero h1{margin:0 0 10px;font-size:42px;line-height:1.02;letter-spacing:-.03em;text-transform:uppercase;text-shadow:0 0 22px rgba(125,233,255,.18)}
         .hero p{margin:0;color:var(--muted);line-height:1.7}
-        .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
         .stat{border:1px solid var(--border);border-radius:20px;padding:16px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;position:relative;overflow:hidden}
         html[data-theme="light"] .stat{background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(255,245,235,.76))}
         .stat:before{content:"";position:absolute;left:-20%;top:0;bottom:0;width:60%;background:linear-gradient(90deg,transparent,rgba(255,204,98,.08),transparent);transform:skewX(-25deg)}
@@ -192,8 +187,8 @@ function pretty_json($value)
         .stat .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
         .stat .v{margin-top:10px;font-size:24px;font-weight:700;color:var(--accent2)}
         .stat .d{margin-top:8px;color:var(--muted);font-size:13px;line-height:1.6}
-        .layout{grid-template-columns:minmax(0,1.45fr) minmax(300px,.85fr);align-items:start}
-        .panel{border-radius:28px;padding:24px;background:linear-gradient(160deg,rgba(57,16,19,.84),rgba(22,8,11,.94));clip-path:polygon(0 0,98% 0,100% 10%,100% 100%,0 100%,0 12%)}
+        .layout{grid-template-columns:minmax(0,1.78fr) minmax(260px,.72fr);align-items:start;gap:14px}
+        .panel{border-radius:26px;padding:20px;background:linear-gradient(160deg,rgba(57,16,19,.84),rgba(22,8,11,.94));clip-path:polygon(0 0,98% 0,100% 10%,100% 100%,0 100%,0 12%)}
         html[data-theme="light"] .panel{background:linear-gradient(160deg,rgba(255,249,244,.96),rgba(255,252,248,.98))}
         .title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
         .title h2,.title h3{margin:0}
@@ -202,12 +197,15 @@ function pretty_json($value)
         .notice.info{background:var(--info)}
         .notice.ok{background:var(--ok)}
         .notice.bad{background:var(--bad)}
-        .command-flow{gap:18px}
-        .form-section{padding:20px;border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
+        .command-flow{grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+        .flow-span-7{grid-column:span 7}
+        .flow-span-5{grid-column:span 5}
+        .flow-span-12{grid-column:span 12}
+        .form-section{padding:16px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
         html[data-theme="light"] .form-section{background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(255,247,240,.92))}
-        .section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
-        .section-head h3{margin:6px 0 6px;font-size:20px}
-        .section-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+        .section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+        .section-head h3{margin:4px 0 4px;font-size:18px}
+        .section-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
         .field{grid-column:span 12}
         .s2{grid-column:span 2}
         .s3{grid-column:span 3}
@@ -217,17 +215,14 @@ function pretty_json($value)
         .field label{display:block;margin-bottom:8px;font-weight:700;font-size:13px}
         input[type=text],input[type=password],select,textarea{width:100%;border:1px solid var(--border);background:var(--input);color:var(--text);border-radius:18px;padding:13px 14px;font-size:14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
         input[type=text]:focus,input[type=password]:focus,select:focus,textarea:focus{border-color:rgba(125,233,255,.55);box-shadow:0 0 0 4px rgba(125,233,255,.1), inset 0 0 20px rgba(255,204,98,.04);transform:translateY(-1px)}
-        textarea{min-height:165px;resize:vertical;line-height:1.6}
-        textarea:disabled,input:disabled{opacity:.62;cursor:not-allowed}
+        textarea{min-height:150px;resize:vertical;line-height:1.6}
         .micro,.side{border-radius:22px;padding:18px;border:1px solid var(--border);background:var(--card2)}
         .micro{border-radius:18px;padding:14px 16px;background:rgba(255,255,255,.04)}
         html[data-theme="light"] .micro{background:rgba(255,255,255,.74)}
-        .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
-        .toolbar label{margin:0}
         .button{border-radius:16px;min-height:48px;padding:0 18px;background:linear-gradient(135deg,rgba(215,61,47,.38),rgba(255,204,98,.22));text-transform:uppercase;letter-spacing:.04em}
         .button.alt{background:linear-gradient(135deg,rgba(125,233,255,.15),rgba(255,204,98,.12))}
         .button.ghost{background:transparent}
-        .sticky-stack{display:grid;gap:18px;position:sticky;top:18px}
+        .sticky-stack{display:grid;gap:12px;position:sticky;top:16px}
         .side{background:linear-gradient(160deg,rgba(50,14,17,.86),rgba(20,8,11,.95))}
         html[data-theme="light"] .side{background:linear-gradient(160deg,rgba(255,248,242,.96),rgba(255,252,248,.98))}
         .side h3{margin:0 0 10px;color:var(--accent2);text-transform:uppercase;letter-spacing:.05em}
@@ -235,7 +230,7 @@ function pretty_json($value)
         .mini-list{display:grid;gap:8px}
         .link{display:inline-flex;align-items:center;color:var(--accent);text-decoration:none;font-weight:700}
         .link:hover{text-decoration:underline}
-        .action-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border-radius:24px;background:linear-gradient(160deg,rgba(92,21,25,.72),rgba(30,10,14,.92))}
+        .action-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:22px;background:linear-gradient(160deg,rgba(92,21,25,.72),rgba(30,10,14,.92))}
         html[data-theme="light"] .action-bar{background:linear-gradient(160deg,rgba(255,247,240,.96),rgba(255,252,247,.98))}
         .action-copy{display:grid;gap:6px}
         .action-copy strong{font-size:15px}
@@ -260,8 +255,10 @@ function pretty_json($value)
         @keyframes pulseDot{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.35);opacity:1}}
         @keyframes scanMove{0%{transform:translateY(0)}100%{transform:translateY(120vh)}}
         @keyframes reactorSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+        @media (max-width:1250px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
         @media (max-width:1100px){.hero-grid,.layout{grid-template-columns:1fr}.sticky-stack{position:static}}
-        @media (max-width:760px){.shell{padding:18px 12px 28px}.hero{padding:20px;border-radius:22px;clip-path:none}.panel{clip-path:none}.hero h1{font-size:30px}.section-grid{grid-template-columns:1fr}.s2,.s3,.s4,.s5,.s6{grid-column:span 12}.stats{grid-template-columns:1fr}.hero-top{grid-template-columns:1fr}.arc-reactor{position:relative;right:auto;top:auto;margin:10px auto 0}.action-bar{align-items:stretch;flex-direction:column}.action-bar .button{width:100%}.theme-pill{width:100%}}
+        @media (max-width:900px){.flow-span-5,.flow-span-7,.flow-span-12{grid-column:span 12}}
+        @media (max-width:760px){.shell{padding:16px 12px 24px}.hero{padding:18px;border-radius:22px;clip-path:none}.panel{clip-path:none}.hero h1{font-size:30px}.section-grid{grid-template-columns:1fr}.s2,.s3,.s4,.s5,.s6{grid-column:span 12}.stats{grid-template-columns:1fr}.hero-top{grid-template-columns:1fr}.arc-reactor{position:relative;right:auto;top:auto;margin:10px auto 0}.action-bar{align-items:stretch;flex-direction:column}.action-bar .button{width:100%}.theme-pill{width:100%}}
     </style>
 </head>
 <body>
@@ -281,11 +278,11 @@ function pretty_json($value)
             <div>
                 <div class="armor-subtitle">Armor Interface Online</div>
                 <h1><?php echo h($projectMeta['name']); ?></h1>
-                <p><?php echo h($projectMeta['description']); ?> La cabina ahora separa conexión, ajustes y contenido para que el flujo sea más obvio, y el cambio entre modo oscuro y claro sea visible y consistente.</p>
+                <p><?php echo h($projectMeta['description']); ?> La cabina ahora ocupa mejor el ancho disponible, reduce paneles redundantes y se centra en un flujo guiado simple: proveedor, parámetros y prompt.</p>
             </div>
             <div class="stats">
                 <div class="stat"><div class="k">Provider Nodes</div><div class="v"><?php echo h(count($providerUiCatalog)); ?></div><div class="d">OpenAI, DeepSeek, Anthropic y custom listos para selección rápida.</div></div>
-                <div class="stat"><div class="k">Input Modes</div><div class="v">2</div><div class="d">Modo guiado con <code>System + Prompt</code> o modo raw con <code>messages_json</code>.</div></div>
+                <div class="stat"><div class="k">Prompt Mode</div><div class="v">Guided</div><div class="d">La GUI usa un único flujo directo con <code>System + Prompt</code>.</div></div>
                 <div class="stat"><div class="k">Theme Engine</div><div class="v">Dual</div><div class="d">Tema oscuro y claro persistidos localmente sin recargar la página.</div></div>
                 <div class="stat"><div class="k">Build</div><div class="v"><?php echo h($projectMeta['version']); ?></div><div class="d">Visible en la app para alinear Git, GitHub Actions y releases.</div></div>
             </div>
@@ -296,7 +293,7 @@ function pretty_json($value)
         <section class="panel">
             <div class="panel-corners"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
             <div class="title"><h2>Armor Command Deck</h2><span class="badge">Cockpit Reordered</span></div>
-            <div class="caption">La interfaz quedó reorganizada por pasos para reducir confusión: primero conexión, luego parámetros y finalmente el contenido de la solicitud.</div>
+            <div class="caption">La interfaz quedó compactada para aprovechar mejor el espacio: conexión y parámetros arriba, prompt abajo, y una columna lateral mucho más corta.</div>
             <div class="line"></div>
 
             <div class="notice info">La <strong>Base URL</strong> cambia automáticamente al seleccionar un proveedor predefinido. Si usas un gateway o proxy propio, selecciona <strong>custom</strong> y escribe tu URL manualmente.</div>
@@ -306,7 +303,7 @@ function pretty_json($value)
 
             <form method="post" action="">
                 <div class="command-flow">
-                    <div class="form-section">
+                    <div class="form-section flow-span-7">
                         <div class="section-head">
                             <div>
                                 <div class="section-kicker">Paso 1</div>
@@ -342,7 +339,7 @@ function pretty_json($value)
                         </div>
                     </div>
 
-                    <div class="form-section">
+                    <div class="form-section flow-span-5">
                         <div class="section-head">
                             <div>
                                 <div class="section-kicker">Paso 2</div>
@@ -366,19 +363,19 @@ function pretty_json($value)
                                 <span class="helper">Segundos máximos para la llamada HTTP.</span>
                             </div>
                             <div class="field">
-                                <div class="micro"><strong>API JSON:</strong><div class="helper">También puedes consumir <code>api.php</code> por POST y enviar <code>provider</code>, <code>model</code>, <code>system</code>, <code>prompt</code> o <code>messages_json</code>.</div></div>
+                                <div class="micro"><strong>Uso recomendado:</strong><div class="helper">Mantén temperatura baja para respuestas más estables y sube <code>max_tokens</code> sólo cuando realmente necesites más longitud.</div></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-section">
+                    <div class="form-section flow-span-12">
                         <div class="section-head">
                             <div>
                                 <div class="section-kicker">Paso 3</div>
                                 <h3>Contenido de la solicitud</h3>
-                                <div class="section-note">Usa el modo guiado con <code>System + Prompt</code> o pega un arreglo completo de mensajes JSON.</div>
+                                <div class="section-note">La vista quedó enfocada en el flujo guiado. Define el rol del asistente y luego la tarea concreta.</div>
                             </div>
-                            <span class="badge" id="message_mode_hint">Modo guiado activo</span>
+                            <span class="badge">Prompt Guided</span>
                         </div>
                         <div class="section-grid">
                             <div class="field s6">
@@ -390,20 +387,15 @@ function pretty_json($value)
                                 <textarea name="prompt" id="prompt"><?php echo h($form['prompt']); ?></textarea>
                             </div>
                             <div class="field">
-                                <div class="toolbar">
-                                    <label for="messages_json">Messages JSON opcional</label>
-                                    <button type="button" class="button alt" id="clear_messages_button">Vaciar raw JSON</button>
-                                </div>
-                                <textarea name="messages_json" id="messages_json" placeholder='[{"role":"system","content":"Eres util"},{"role":"user","content":"Hola"}]'><?php echo h($form['messages_json']); ?></textarea>
-                                <span class="helper">Si llenas este campo, la app usará exactamente ese arreglo y desactivará temporalmente <code>System</code> y <code>Prompt</code>.</span>
+                                <div class="micro"><strong>Tip:</strong><div class="helper">Usa <code>System</code> para fijar tono, rol y reglas. Usa <code>Prompt</code> para la petición puntual que quieres resolver.</div></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="action-bar">
+                    <div class="action-bar flow-span-12">
                         <div class="action-copy">
                             <strong>Flujo recomendado</strong>
-                            <span class="helper">1. Elige proveedor. 2. Revisa parámetros. 3. Usa modo guiado o raw JSON. 4. Envía la consulta.</span>
+                            <span class="helper">1. Elige proveedor. 2. Ajusta parámetros. 3. Escribe system y prompt. 4. Envía la consulta.</span>
                         </div>
                         <button type="submit" class="button">Consultar modelo</button>
                     </div>
@@ -422,19 +414,11 @@ function pretty_json($value)
                 <ul class="mini-list">
                     <li>Proveedor: el selector autocompleta la Base URL oficial.</li>
                     <li>Modelo: puedes aceptar el sugerido o escribir uno específico.</li>
-                    <li>Contenido: usa modo guiado o raw JSON, pero no ambos al mismo tiempo.</li>
-                    <li>Envío: la respuesta aparece abajo con telemetría y JSON crudo.</li>
+                    <li>Prompt: define primero el rol y después la instrucción principal.</li>
+                    <li>Envío: la respuesta aparece abajo con telemetría y texto final.</li>
                 </ul>
             </div>
-            <div class="side">
-                <h3>Request Modes</h3>
-                <ul class="mini-list">
-                    <li><strong>Modo guiado:</strong> rellena <code>System</code> y <code>Prompt</code>.</li>
-                    <li><strong>Modo raw:</strong> pega <code>messages_json</code> para enviar el arreglo exacto.</li>
-                </ul>
-            </div>
-            <div class="side"><h3>Build Version</h3><p>Versión activa: <strong><?php echo h($projectMeta['version']); ?></strong></p><p>Esta versión se usa para la app, el tag Git y el release automático.</p></div>
-            <div class="side"><h3>About</h3><p><?php echo h($projectMeta['name']); ?> <?php echo h($projectMeta['version']); ?><br />Creado por <?php echo h($projectMeta['author']); ?><br /><?php echo h($projectMeta['year']); ?> Derechos Reservados</p></div>
+            <div class="side"><h3>Build + About</h3><p>Versión activa: <strong><?php echo h($projectMeta['version']); ?></strong></p><p><?php echo h($projectMeta['name']); ?><br />Creado por <?php echo h($projectMeta['author']); ?><br /><?php echo h($projectMeta['year']); ?> Derechos Reservados</p><p>Esta versión se usa para la app, el tag Git y el release automático.</p></div>
         </aside>
     </div>
 
@@ -449,8 +433,6 @@ function pretty_json($value)
             </div>
             <?php if (isset($response['reasoning_text']) && trim($response['reasoning_text']) !== '') { ?><div class="title"><h3>Reasoning</h3></div><pre><?php echo h($response['reasoning_text']); ?></pre><div class="line"></div><?php } ?>
             <div class="title"><h3>Texto</h3></div><pre><?php echo h($response['text']); ?></pre>
-            <div class="line"></div>
-            <div class="title"><h3>Raw JSON</h3></div><pre><?php echo h(pretty_json($response['raw'])); ?></pre>
         </section>
     <?php } ?>
 
@@ -468,11 +450,6 @@ var baseUrlField = document.getElementById('base_url');
 var modelField = document.getElementById('model');
 var docsLink = document.getElementById('provider_docs_link');
 var providerNotes = document.getElementById('provider_notes');
-var systemField = document.getElementById('system');
-var promptField = document.getElementById('prompt');
-var messagesJsonField = document.getElementById('messages_json');
-var clearMessagesButton = document.getElementById('clear_messages_button');
-var messageModeHint = document.getElementById('message_mode_hint');
 var themeToggleButton = document.getElementById('theme_toggle');
 var themeStatus = document.getElementById('theme_status');
 var themeHint = document.getElementById('theme_hint');
@@ -524,33 +501,11 @@ function bootstrapTheme() {
     applyTheme(storedTheme);
 }
 
-// Si el usuario pega messages_json, el modo guiado se desactiva visualmente para evitar ambigüedad.
-function trimValue(value) {
-    return String(value || '').replace(/^\s+|\s+$/g, '');
-}
-
-function syncInputMode() {
-    var rawModeActive = trimValue(messagesJsonField.value) !== '';
-    systemField.disabled = rawModeActive;
-    promptField.disabled = rawModeActive;
-    if (messageModeHint) {
-        messageModeHint.innerHTML = rawModeActive ? 'Modo raw JSON activo' : 'Modo guiado activo';
-    }
-}
-
 providerField.onchange = function () { applyProviderSelection(true); };
 themeToggleButton.onclick = function () { toggleTheme(); };
-messagesJsonField.onkeyup = function () { syncInputMode(); };
-messagesJsonField.onchange = function () { syncInputMode(); };
-clearMessagesButton.onclick = function () {
-    messagesJsonField.value = '';
-    syncInputMode();
-    messagesJsonField.focus();
-};
 
 bootstrapTheme();
 applyProviderSelection(false);
-syncInputMode();
 </script>
 </body>
 </html>
