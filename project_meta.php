@@ -11,7 +11,7 @@ function php_llm_get_project_meta()
     return array(
         'name' => 'PHP LLM Client',
         'slug' => 'php-llm-client',
-        'version' => 'V0.2.0',
+        'version' => 'V0.2.1',
         'author' => 'Synyster Rick',
         'year' => gmdate('Y'),
         'description' => 'Cliente PHP con soporte para OpenAI, DeepSeek, Anthropic y endpoints compatibles con OpenAI.',

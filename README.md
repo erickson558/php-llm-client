@@ -1,6 +1,6 @@
 # PHP LLM Client
 
-Versión actual: `V0.2.0`
+Versión actual: `V0.2.1`
 
 Cliente web en PHP para consultar modelos de lenguaje desde una sola interfaz, con soporte para:
 
@@ -17,7 +17,7 @@ Esta aplicación te permite:
 - definir modelo, API key y parámetros básicos
 - enviar `system + prompt` o un arreglo `messages_json`
 - consumir el backend desde navegador o por `POST` JSON
-- alternar entre modo claro y modo oscuro con persistencia local
+- alternar entre modo claro y modo oscuro con persistencia local y contraste más claro en el tema light
 - usar una interfaz inspirada en una armadura de Iron Man con estilo HUD
 
 ## Estado actual del proyecto
@@ -28,7 +28,9 @@ El proyecto está pensado para el entorno actual de EasyPHP y PHP 5.4, por eso e
 
 - interfaz futurista con efectos visuales y animaciones suaves
 - tematización tipo Iron Man con reactor visual y paleta blindada rojo/oro
-- modo claro y modo oscuro persistido en `localStorage`
+- modo claro y modo oscuro persistido en `localStorage` con cambio de tema más robusto
+- cockpit reorganizado por pasos para separar conexión, ajustes y contenido
+- activación visual del modo `messages_json` para evitar mezclarlo con `System + Prompt`
 - catálogo central de proveedores oficiales
 - cliente backend con adaptadores para `anthropic` y `openai_compatible`
 - transporte HTTP con fallback a `curl.exe` en Windows
@@ -160,6 +162,7 @@ La versión debe mantenerse sincronizada en:
 El workflow hace lo siguiente en cada push a `main`:
 
 - valida el formato de `VERSION`
+- valida que `VERSION`, `project_meta.php`, `README.md` y `CHANGELOG.md` estén sincronizados
 - ejecuta lint de todos los archivos PHP
 - crea un `.zip` del proyecto
 - crea el tag si no existe

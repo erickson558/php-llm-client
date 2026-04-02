@@ -1,5 +1,12 @@
 # Changelog
 
+## V0.2.1
+
+- corrección del modo claro con cambio de tema más robusto basado en `data-theme`
+- reorganización de la GUI en pasos claros: conexión, ajustes y contenido
+- activación visual de modo raw para deshabilitar temporalmente `System` y `Prompt` cuando se usa `messages_json`
+- endurecimiento del release automation para validar que `VERSION`, `project_meta.php`, `README.md` y `CHANGELOG.md` estén sincronizados
+
 ## V0.2.0
 
 - interfaz retocada con temática inspirada en una armadura de Iron Man
