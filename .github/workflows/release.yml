@@ -1,0 +1,73 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Read version
+        id: version
+        run: |
+          VERSION=$(tr -d '\r\n' < VERSION)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if [[ ! "$VERSION" =~ ^V[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "VERSION no tiene formato Vx.y.z"
+            exit 1
+          fi
+
+      - name: Lint PHP files
+        run: |
+          find . -name "*.php" -print0 | while IFS= read -r -d '' file; do
+            php -l "$file"
+          done
+
+      - name: Build release archive
+        run: |
+          ARCHIVE_NAME="${{ github.event.repository.name }}-${{ steps.version.outputs.version }}.zip"
+          zip -r "$ARCHIVE_NAME" . \
+            -x ".git/*" \
+            -x ".github/*" \
+            -x "config.php"
+          echo "ARCHIVE_NAME=$ARCHIVE_NAME" >> "$GITHUB_ENV"
+
+      - name: Create tag if missing
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if git rev-parse "$VERSION" >/dev/null 2>&1; then
+            echo "El tag $VERSION ya existe; se reutilizará."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git tag "$VERSION"
+            git push origin "$VERSION"
+          fi
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: ${{ steps.version.outputs.version }}
+          body: |
+            Release automática generada desde la rama main.
+
+            Versión: ${{ steps.version.outputs.version }}
+          files: ${{ env.ARCHIVE_NAME }}
+          generate_release_notes: true
