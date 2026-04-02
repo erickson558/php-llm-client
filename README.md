@@ -1,6 +1,6 @@
 # PHP LLM Client
 
-Versión actual: `V0.1.0`
+Versión actual: `V0.2.0`
 
 Cliente web en PHP para consultar modelos de lenguaje desde una sola interfaz, con soporte para:
 
@@ -16,9 +16,9 @@ Esta aplicación te permite:
 - seleccionar un proveedor y autocompletar su Base URL oficial
 - definir modelo, API key y parámetros básicos
 - enviar `system + prompt` o un arreglo `messages_json`
-- cargar prompts maestro desde una biblioteca local
 - consumir el backend desde navegador o por `POST` JSON
 - alternar entre modo claro y modo oscuro con persistencia local
+- usar una interfaz inspirada en una armadura de Iron Man con estilo HUD
 
 ## Estado actual del proyecto
 
@@ -27,9 +27,9 @@ El proyecto está pensado para el entorno actual de EasyPHP y PHP 5.4, por eso e
 ## Características principales
 
 - interfaz futurista con efectos visuales y animaciones suaves
+- tematización tipo Iron Man con reactor visual y paleta blindada rojo/oro
 - modo claro y modo oscuro persistido en `localStorage`
 - catálogo central de proveedores oficiales
-- biblioteca central de prompts maestro
 - cliente backend con adaptadores para `anthropic` y `openai_compatible`
 - transporte HTTP con fallback a `curl.exe` en Windows
 - versión visible en la GUI
@@ -47,7 +47,6 @@ php-llm/
 ├─ index.php
 ├─ LICENSE
 ├─ project_meta.php
-├─ prompt_presets.php
 ├─ provider_catalog.php
 ├─ README.md
 ├─ VERSION
@@ -108,7 +107,7 @@ Abre:
 
 `GET /php-llm/api.php`
 
-Devuelve metadatos del proyecto, proveedores y prompts disponibles.
+Devuelve metadatos del proyecto y proveedores disponibles.
 
 `POST /php-llm/api.php`
 
@@ -122,15 +121,6 @@ Ejemplo:
   "prompt": "Explica qué hace este proyecto.",
   "temperature": 0.2,
   "max_tokens": 600
-}
-```
-
-Ejemplo usando un prompt maestro:
-
-```json
-{
-  "provider": "openai",
-  "prompt_preset": "daily_short_master"
 }
 ```
 

@@ -6,19 +6,16 @@
  * Soporta:
  * - POST con prompt directo
  * - POST con messages o messages_json
- * - POST con prompt_preset para cargar una plantilla maestra
- * - GET informativo para descubrir proveedores y presets disponibles
+ * - GET informativo para descubrir proveedores disponibles
  */
 require_once dirname(__FILE__) . '/lib/LlmClient.php';
 require_once dirname(__FILE__) . '/provider_catalog.php';
-require_once dirname(__FILE__) . '/prompt_presets.php';
 require_once dirname(__FILE__) . '/project_meta.php';
 
 $configPath = dirname(__FILE__) . '/config.php';
 $config = file_exists($configPath) ? require $configPath : require dirname(__FILE__) . '/config.example.php';
 $projectMeta = php_llm_get_project_meta();
 $providerCatalog = php_llm_get_provider_catalog();
-$promptPresets = php_llm_get_prompt_presets();
 $config = php_llm_api_merge_config_with_catalog($config, $providerCatalog);
 
 header('Content-Type: application/json; charset=utf-8');
@@ -31,13 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             'message' => 'Usa POST para consultar un modelo.',
             'project' => $projectMeta,
             'providers' => $providerCatalog,
-            'prompt_presets' => php_llm_get_prompt_preset_summaries($promptPresets),
             'example' => array(
                 'provider' => 'openai',
                 'model' => 'gpt-4.1-mini',
                 'prompt' => 'Hola',
                 'system' => 'Eres un asistente util.',
-                'prompt_preset' => 'daily_short_master',
             ),
         )
     );
@@ -47,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $payload = read_request_payload();
 
 try {
-    $payload = apply_prompt_preset_if_needed($payload, $promptPresets);
     $client = new LlmClient($config, null);
     $result = $client->chat($payload);
 
@@ -86,31 +80,6 @@ function read_request_payload()
     }
 
     return array();
-}
-
-/**
- * Si el cliente manda un prompt_preset y no manda prompt manual,
- * inyecta automaticamente el texto de la plantilla.
- */
-function apply_prompt_preset_if_needed($payload, $promptPresets)
-{
-    if (!is_array($payload)) {
-        return array();
-    }
-
-    if (
-        isset($payload['prompt_preset']) &&
-        trim((string) $payload['prompt_preset']) !== '' &&
-        (!isset($payload['prompt']) || trim((string) $payload['prompt']) === '')
-    ) {
-        $presetKey = trim((string) $payload['prompt_preset']);
-
-        if (isset($promptPresets[$presetKey]['prompt'])) {
-            $payload['prompt'] = $promptPresets[$presetKey]['prompt'];
-        }
-    }
-
-    return $payload;
 }
 
 /**
