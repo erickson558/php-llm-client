@@ -156,56 +156,58 @@ function pretty_json($value)
         html[data-theme="light"] body:before{background-image:linear-gradient(rgba(184,115,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(184,115,0,.05) 1px,transparent 1px);opacity:.55}
         body:after{height:150px;top:-180px;left:-10%;right:-10%;background:linear-gradient(180deg,transparent 0%,rgba(125,233,255,.14) 50%,transparent 100%);filter:blur(18px);animation:scanMove 8s linear infinite}
         html[data-theme="light"] body:after{background:linear-gradient(180deg,transparent 0%,rgba(184,115,0,.14) 50%,transparent 100%)}
-        .shell{max-width:1380px;margin:0 auto;padding:22px 16px 34px;position:relative}
+        .shell{max-width:1460px;margin:0 auto;padding:18px 14px 28px;position:relative}
         .shell:before,.shell:after{content:"";position:fixed;pointer-events:none;border-radius:999px;filter:blur(12px);opacity:.5}
         .shell:before{width:260px;height:260px;left:-70px;top:120px;background:radial-gradient(circle,rgba(125,233,255,.28),transparent 70%)}
         .shell:after{width:300px;height:300px;right:-90px;top:58%;background:radial-gradient(circle,rgba(215,61,47,.22),transparent 72%)}
         html[data-theme="light"] .shell:before{background:radial-gradient(circle,rgba(255,204,98,.22),transparent 68%)}
         html[data-theme="light"] .shell:after{background:radial-gradient(circle,rgba(15,144,179,.16),transparent 72%)}
         .hero,.panel,.side,.form-section,.action-bar{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
-        .hero{border-radius:28px;padding:22px 24px;margin-bottom:18px;background:linear-gradient(135deg,rgba(88,17,20,.85),rgba(34,9,14,.92));clip-path:polygon(0 0,97% 0,100% 12%,100% 100%,3% 100%,0 88%)}
+        .hero{border-radius:26px;padding:18px 20px;margin-bottom:12px;background:linear-gradient(135deg,rgba(88,17,20,.85),rgba(34,9,14,.92));clip-path:polygon(0 0,97% 0,100% 12%,100% 100%,3% 100%,0 88%)}
         html[data-theme="light"] .hero{background:linear-gradient(135deg,rgba(255,247,239,.98),rgba(255,252,247,.96))}
         .hero:before,.panel:before,.side:before,.form-section:before,.action-bar:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.06),transparent 40%);pointer-events:none}
         .hero:after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,204,98,.18);border-radius:24px;clip-path:polygon(0 0,98% 0,100% 11%,100% 100%,2% 100%,0 89%)}
-        .hero-top,.hero-grid,.layout,.stats,.response-meta,.command-flow,.section-grid{display:grid;gap:14px}
+        .hero-top,.hero-grid,.stats,.response-meta,.command-flow,.section-grid,.utility-grid{display:grid;gap:12px}
         .hero-top{grid-template-columns:1fr auto;align-items:center}
-        .badges{display:flex;flex-wrap:wrap;gap:10px}
-        .badge,.chip,.theme-pill,.section-kicker{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.05);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+        .badges{display:flex;flex-wrap:wrap;gap:8px}
+        .badge,.chip,.theme-pill,.section-kicker{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.05);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
         html[data-theme="light"] .badge,html[data-theme="light"] .chip,html[data-theme="light"] .theme-pill,html[data-theme="light"] .section-kicker{background:rgba(255,255,255,.72)}
         .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 18px rgba(125,233,255,.75);animation:pulseDot 2s ease-in-out infinite}
         .theme-btn,.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;color:var(--text);font-weight:700;border:1px solid var(--border);transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
-        .theme-btn{border-radius:999px;min-height:46px;padding:0 16px;background:linear-gradient(135deg,rgba(255,204,98,.18),rgba(125,233,255,.09))}
+        .theme-btn{border-radius:999px;min-height:42px;padding:0 14px;background:linear-gradient(135deg,rgba(255,204,98,.18),rgba(125,233,255,.09))}
         .theme-btn:hover,.button:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(255,204,98,.16)}
-        .hero-grid{grid-template-columns:1.35fr .95fr}
-        .hero h1{margin:0 0 10px;font-size:42px;line-height:1.02;letter-spacing:-.03em;text-transform:uppercase;text-shadow:0 0 22px rgba(125,233,255,.18)}
-        .hero p{margin:0;color:var(--muted);line-height:1.7}
+        .hero-grid{grid-template-columns:1.75fr 1fr;align-items:start}
+        .hero h1{margin:0 0 8px;font-size:38px;line-height:1.02;letter-spacing:-.03em;text-transform:uppercase;text-shadow:0 0 22px rgba(125,233,255,.18)}
+        .hero p{margin:0;color:var(--muted);line-height:1.6;font-size:13px}
         .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
-        .stat{border:1px solid var(--border);border-radius:20px;padding:16px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;position:relative;overflow:hidden}
+        .stat{border:1px solid var(--border);border-radius:18px;padding:12px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;position:relative;overflow:hidden}
         html[data-theme="light"] .stat{background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(255,245,235,.76))}
         .stat:before{content:"";position:absolute;left:-20%;top:0;bottom:0;width:60%;background:linear-gradient(90deg,transparent,rgba(255,204,98,.08),transparent);transform:skewX(-25deg)}
         .stat:hover{transform:translateY(-4px);border-color:rgba(255,204,98,.35);box-shadow:0 14px 28px rgba(0,0,0,.18)}
         .stat .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-        .stat .v{margin-top:10px;font-size:24px;font-weight:700;color:var(--accent2)}
-        .stat .d{margin-top:8px;color:var(--muted);font-size:13px;line-height:1.6}
-        .layout{grid-template-columns:minmax(0,1.78fr) minmax(260px,.72fr);align-items:start;gap:14px}
-        .panel{border-radius:26px;padding:20px;background:linear-gradient(160deg,rgba(57,16,19,.84),rgba(22,8,11,.94));clip-path:polygon(0 0,98% 0,100% 10%,100% 100%,0 100%,0 12%)}
+        .stat .v{margin-top:8px;font-size:21px;font-weight:700;color:var(--accent2)}
+        .stat .d{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.5}
+        .utility-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:12px}
+        .panel{border-radius:24px;padding:18px;background:linear-gradient(160deg,rgba(57,16,19,.84),rgba(22,8,11,.94));clip-path:polygon(0 0,98% 0,100% 10%,100% 100%,0 100%,0 12%)}
         html[data-theme="light"] .panel{background:linear-gradient(160deg,rgba(255,249,244,.96),rgba(255,252,248,.98))}
-        .title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+        .title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
         .title h2,.title h3{margin:0}
         .caption,.helper,.side p,.side li,.footer,.section-note{color:var(--muted);font-size:13px;line-height:1.7}
-        .notice{padding:14px 16px;border-radius:18px;border:1px solid var(--border);margin:0 0 14px}
+        .notice{padding:12px 14px;border-radius:16px;border:1px solid var(--border);margin:0 0 10px}
         .notice.info{background:var(--info)}
         .notice.ok{background:var(--ok)}
         .notice.bad{background:var(--bad)}
-        .command-flow{grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+        .command-flow{grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
+        .flow-span-8{grid-column:span 8}
         .flow-span-7{grid-column:span 7}
         .flow-span-5{grid-column:span 5}
+        .flow-span-4{grid-column:span 4}
         .flow-span-12{grid-column:span 12}
-        .form-section{padding:16px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
+        .form-section{padding:14px;border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
         html[data-theme="light"] .form-section{background:linear-gradient(160deg,rgba(255,255,255,.82),rgba(255,247,240,.92))}
-        .section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
-        .section-head h3{margin:4px 0 4px;font-size:18px}
-        .section-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
+        .section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:10px}
+        .section-head h3{margin:3px 0 3px;font-size:17px}
+        .section-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:10px}
         .field{grid-column:span 12}
         .s2{grid-column:span 2}
         .s3{grid-column:span 3}
@@ -215,22 +217,21 @@ function pretty_json($value)
         .field label{display:block;margin-bottom:8px;font-weight:700;font-size:13px}
         input[type=text],input[type=password],select,textarea{width:100%;border:1px solid var(--border);background:var(--input);color:var(--text);border-radius:18px;padding:13px 14px;font-size:14px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
         input[type=text]:focus,input[type=password]:focus,select:focus,textarea:focus{border-color:rgba(125,233,255,.55);box-shadow:0 0 0 4px rgba(125,233,255,.1), inset 0 0 20px rgba(255,204,98,.04);transform:translateY(-1px)}
-        textarea{min-height:150px;resize:vertical;line-height:1.6}
-        .micro,.side{border-radius:22px;padding:18px;border:1px solid var(--border);background:var(--card2)}
-        .micro{border-radius:18px;padding:14px 16px;background:rgba(255,255,255,.04)}
+        textarea{min-height:132px;resize:vertical;line-height:1.6}
+        .micro,.side{border-radius:20px;padding:14px;border:1px solid var(--border);background:var(--card2)}
+        .micro{border-radius:16px;padding:12px 14px;background:rgba(255,255,255,.04)}
         html[data-theme="light"] .micro{background:rgba(255,255,255,.74)}
         .button{border-radius:16px;min-height:48px;padding:0 18px;background:linear-gradient(135deg,rgba(215,61,47,.38),rgba(255,204,98,.22));text-transform:uppercase;letter-spacing:.04em}
         .button.alt{background:linear-gradient(135deg,rgba(125,233,255,.15),rgba(255,204,98,.12))}
         .button.ghost{background:transparent}
-        .sticky-stack{display:grid;gap:12px;position:sticky;top:16px}
         .side{background:linear-gradient(160deg,rgba(50,14,17,.86),rgba(20,8,11,.95))}
         html[data-theme="light"] .side{background:linear-gradient(160deg,rgba(255,248,242,.96),rgba(255,252,248,.98))}
-        .side h3{margin:0 0 10px;color:var(--accent2);text-transform:uppercase;letter-spacing:.05em}
+        .side h3{margin:0 0 8px;color:var(--accent2);text-transform:uppercase;letter-spacing:.05em}
         .side ul{margin:10px 0 0 18px;padding:0}
-        .mini-list{display:grid;gap:8px}
+        .mini-list{display:grid;gap:6px}
         .link{display:inline-flex;align-items:center;color:var(--accent);text-decoration:none;font-weight:700}
         .link:hover{text-decoration:underline}
-        .action-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:22px;background:linear-gradient(160deg,rgba(92,21,25,.72),rgba(30,10,14,.92))}
+        .action-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border-radius:20px;background:linear-gradient(160deg,rgba(92,21,25,.72),rgba(30,10,14,.92))}
         html[data-theme="light"] .action-bar{background:linear-gradient(160deg,rgba(255,247,240,.96),rgba(255,252,247,.98))}
         .action-copy{display:grid;gap:6px}
         .action-copy strong{font-size:15px}
@@ -241,7 +242,7 @@ function pretty_json($value)
         .response-meta{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:0 0 14px}
         .chip{justify-content:center}
         .line{height:1px;margin:18px 0;background:linear-gradient(90deg,transparent,rgba(255,204,98,.46),transparent)}
-        .footer{text-align:center;margin-top:18px;letter-spacing:.06em;text-transform:uppercase}
+        .footer{text-align:center;margin-top:12px;letter-spacing:.06em;text-transform:uppercase}
         .armor-subtitle{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;color:var(--accent2);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
         .armor-subtitle:before,.armor-subtitle:after{content:"";display:block;width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--accent2))}
         .arc-reactor{position:absolute;right:34px;top:84px;width:118px;height:118px;border-radius:999px;border:1px solid rgba(125,233,255,.4);box-shadow:0 0 0 8px rgba(125,233,255,.05),0 0 35px rgba(125,233,255,.22),inset 0 0 25px rgba(125,233,255,.18);background:radial-gradient(circle,rgba(125,233,255,.82) 0%,rgba(125,233,255,.22) 34%,rgba(0,0,0,.08) 55%,transparent 72%);animation:reactorSpin 12s linear infinite}
@@ -255,10 +256,10 @@ function pretty_json($value)
         @keyframes pulseDot{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.35);opacity:1}}
         @keyframes scanMove{0%{transform:translateY(0)}100%{transform:translateY(120vh)}}
         @keyframes reactorSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-        @media (max-width:1250px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-        @media (max-width:1100px){.hero-grid,.layout{grid-template-columns:1fr}.sticky-stack{position:static}}
-        @media (max-width:900px){.flow-span-5,.flow-span-7,.flow-span-12{grid-column:span 12}}
-        @media (max-width:760px){.shell{padding:16px 12px 24px}.hero{padding:18px;border-radius:22px;clip-path:none}.panel{clip-path:none}.hero h1{font-size:30px}.section-grid{grid-template-columns:1fr}.s2,.s3,.s4,.s5,.s6{grid-column:span 12}.stats{grid-template-columns:1fr}.hero-top{grid-template-columns:1fr}.arc-reactor{position:relative;right:auto;top:auto;margin:10px auto 0}.action-bar{align-items:stretch;flex-direction:column}.action-bar .button{width:100%}.theme-pill{width:100%}}
+        @media (max-width:1280px){.stats,.utility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        @media (max-width:1080px){.hero-grid,.utility-grid{grid-template-columns:1fr}.hero{clip-path:none}.panel{clip-path:none}}
+        @media (max-width:900px){.flow-span-4,.flow-span-5,.flow-span-7,.flow-span-8,.flow-span-12{grid-column:span 12}}
+        @media (max-width:760px){.shell{padding:16px 12px 24px}.hero{padding:16px;border-radius:22px}.hero h1{font-size:30px}.section-grid{grid-template-columns:1fr}.s2,.s3,.s4,.s5,.s6{grid-column:span 12}.stats,.utility-grid{grid-template-columns:1fr}.hero-top{grid-template-columns:1fr}.arc-reactor{position:relative;right:auto;top:auto;margin:10px auto 0}.action-bar{align-items:stretch;flex-direction:column}.action-bar .button{width:100%}.theme-pill{width:100%}}
     </style>
 </head>
 <body>
@@ -289,138 +290,143 @@ function pretty_json($value)
         </div>
     </section>
 
-    <div class="layout">
-        <section class="panel">
-            <div class="panel-corners"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
-            <div class="title"><h2>Armor Command Deck</h2><span class="badge">Cockpit Reordered</span></div>
-            <div class="caption">La interfaz quedó compactada para aprovechar mejor el espacio: conexión y parámetros arriba, prompt abajo, y una columna lateral mucho más corta.</div>
-            <div class="line"></div>
+    <div class="utility-grid">
+        <div class="side">
+            <h3>Theme Console</h3>
+            <span class="theme-pill" id="theme_status">Oscuro / Arc Reactor</span>
+            <p id="theme_hint">Paleta oscura con metal rojo, acentos dorados y reactor azul. El botón superior cambia el tema y lo persiste en <code>localStorage</code>.</p>
+        </div>
+        <div class="side">
+            <h3>Quick Flow</h3>
+            <ul class="mini-list">
+                <li>Proveedor: el selector autocompleta la Base URL oficial.</li>
+                <li>Modelo: usa el sugerido o escribe uno específico.</li>
+                <li>Prompt: define primero el rol y después la instrucción principal.</li>
+            </ul>
+        </div>
+        <div class="side">
+            <h3>Routing Rules</h3>
+            <p>La <strong>Base URL</strong> cambia automáticamente para proveedores predefinidos. Si usas un gateway propio, selecciona <strong>custom</strong> y escribe la URL manualmente.</p>
+            <p><a href="#" class="link" id="provider_docs_link" target="_blank" rel="noopener noreferrer">Ver documentación oficial</a></p>
+        </div>
+        <div class="side">
+            <h3>Build + About</h3>
+            <p>Versión activa: <strong><?php echo h($projectMeta['version']); ?></strong></p>
+            <p><?php echo h($projectMeta['name']); ?><br />Creado por <?php echo h($projectMeta['author']); ?><br /><?php echo h($projectMeta['year']); ?> Derechos Reservados</p>
+            <p>Esta versión se usa para la app, el tag Git y el release automático.</p>
+        </div>
+    </div>
 
-            <div class="notice info">La <strong>Base URL</strong> cambia automáticamente al seleccionar un proveedor predefinido. Si usas un gateway o proxy propio, selecciona <strong>custom</strong> y escribe tu URL manualmente.</div>
-            <?php if (!$configExists) { ?><div class="notice info">No existe <strong>config.php</strong>. Puedes usar <strong>config.example.php</strong> como plantilla o escribir la API key, Base URL y modelo directamente en este formulario.</div><?php } ?>
-            <?php if ($error !== '') { ?><div class="notice bad"><?php echo h($error); ?></div><?php } ?>
-            <?php if ($response !== null && $error === '') { ?><div class="notice ok">Solicitud enviada correctamente al proveedor <strong><?php echo h($response['provider']); ?></strong> usando el transporte <strong><?php echo h($response['transport']); ?></strong>.</div><?php } ?>
+    <section class="panel">
+        <div class="panel-corners"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+        <div class="title"><h2>Armor Command Deck</h2><span class="badge">Dense Layout</span></div>
+        <div class="caption">La cabina usa ahora todo el ancho útil: utilidades arriba, formulario completo abajo y sin una barra lateral larga que robe espacio.</div>
+        <div class="line"></div>
 
-            <form method="post" action="">
-                <div class="command-flow">
-                    <div class="form-section flow-span-7">
-                        <div class="section-head">
-                            <div>
-                                <div class="section-kicker">Paso 1</div>
-                                <h3>Conexión del proveedor</h3>
-                                <div class="section-note">Selecciona el proveedor, valida la Base URL y define el modelo que quieres consultar.</div>
-                            </div>
-                            <span class="badge">Auto Base URL</span>
+        <?php if (!$configExists) { ?><div class="notice info">No existe <strong>config.php</strong>. Puedes usar <strong>config.example.php</strong> como plantilla o escribir la API key, Base URL y modelo directamente en este formulario.</div><?php } ?>
+        <?php if ($error !== '') { ?><div class="notice bad"><?php echo h($error); ?></div><?php } ?>
+        <?php if ($response !== null && $error === '') { ?><div class="notice ok">Solicitud enviada correctamente al proveedor <strong><?php echo h($response['provider']); ?></strong> usando el transporte <strong><?php echo h($response['transport']); ?></strong>.</div><?php } ?>
+
+        <form method="post" action="">
+            <div class="command-flow">
+                <div class="form-section flow-span-8">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Paso 1</div>
+                            <h3>Connection Matrix</h3>
+                            <div class="section-note">Selecciona el proveedor y ajusta la conexión principal sin salir de la misma franja visual.</div>
                         </div>
-                        <div class="section-grid">
-                            <div class="field s3">
-                                <label for="provider">Proveedor</label>
-                                <select name="provider" id="provider">
-                                    <?php foreach ($config['providers'] as $providerName => $providerConfig) { ?>
-                                        <option value="<?php echo h($providerName); ?>"<?php echo $form['provider'] === $providerName ? ' selected="selected"' : ''; ?>><?php echo h($providerName); ?></option>
-                                    <?php } ?>
-                                </select>
-                                <span class="helper" id="provider_notes"></span>
-                            </div>
-                            <div class="field s5">
-                                <label for="base_url">Base URL</label>
-                                <input type="text" name="base_url" id="base_url" value="<?php echo h($form['base_url']); ?>" />
-                                <span class="helper"><a href="#" class="link" id="provider_docs_link" target="_blank" rel="noopener noreferrer">Ver documentación oficial</a></span>
-                            </div>
-                            <div class="field s2">
-                                <label for="model">Modelo</label>
-                                <input type="text" name="model" id="model" value="<?php echo h($form['model']); ?>" />
-                            </div>
-                            <div class="field s2">
-                                <label for="api_key">API key</label>
-                                <input type="password" name="api_key" id="api_key" value="" />
-                                <span class="helper">Si lo dejas vacío, usa la de <code>config.php</code>.</span>
-                            </div>
-                        </div>
+                        <span class="badge">Auto Base URL</span>
                     </div>
-
-                    <div class="form-section flow-span-5">
-                        <div class="section-head">
-                            <div>
-                                <div class="section-kicker">Paso 2</div>
-                                <h3>Ajustes de ejecución</h3>
-                                <div class="section-note">Controla creatividad, tamaño máximo de respuesta y tiempo de espera de la llamada HTTP.</div>
-                            </div>
-                            <span class="badge">Runtime Tune</span>
+                    <div class="section-grid">
+                        <div class="field s3">
+                            <label for="provider">Proveedor</label>
+                            <select name="provider" id="provider">
+                                <?php foreach ($config['providers'] as $providerName => $providerConfig) { ?>
+                                    <option value="<?php echo h($providerName); ?>"<?php echo $form['provider'] === $providerName ? ' selected="selected"' : ''; ?>><?php echo h($providerName); ?></option>
+                                <?php } ?>
+                            </select>
+                            <span class="helper" id="provider_notes"></span>
                         </div>
-                        <div class="section-grid">
-                            <div class="field s4">
-                                <label for="temperature">Temperature</label>
-                                <input type="text" name="temperature" id="temperature" value="<?php echo h($form['temperature']); ?>" />
-                            </div>
-                            <div class="field s4">
-                                <label for="max_tokens">Max tokens</label>
-                                <input type="text" name="max_tokens" id="max_tokens" value="<?php echo h($form['max_tokens']); ?>" />
-                            </div>
-                            <div class="field s4">
-                                <label for="timeout">Timeout</label>
-                                <input type="text" name="timeout" id="timeout" value="<?php echo h($form['timeout']); ?>" />
-                                <span class="helper">Segundos máximos para la llamada HTTP.</span>
-                            </div>
-                            <div class="field">
-                                <div class="micro"><strong>Uso recomendado:</strong><div class="helper">Mantén temperatura baja para respuestas más estables y sube <code>max_tokens</code> sólo cuando realmente necesites más longitud.</div></div>
-                            </div>
+                        <div class="field s5">
+                            <label for="base_url">Base URL</label>
+                            <input type="text" name="base_url" id="base_url" value="<?php echo h($form['base_url']); ?>" />
                         </div>
-                    </div>
-
-                    <div class="form-section flow-span-12">
-                        <div class="section-head">
-                            <div>
-                                <div class="section-kicker">Paso 3</div>
-                                <h3>Contenido de la solicitud</h3>
-                                <div class="section-note">La vista quedó enfocada en el flujo guiado. Define el rol del asistente y luego la tarea concreta.</div>
-                            </div>
-                            <span class="badge">Prompt Guided</span>
+                        <div class="field s2">
+                            <label for="model">Modelo</label>
+                            <input type="text" name="model" id="model" value="<?php echo h($form['model']); ?>" />
                         </div>
-                        <div class="section-grid">
-                            <div class="field s6">
-                                <label for="system">System prompt</label>
-                                <textarea name="system" id="system"><?php echo h($form['system']); ?></textarea>
-                            </div>
-                            <div class="field s6">
-                                <label for="prompt">Prompt</label>
-                                <textarea name="prompt" id="prompt"><?php echo h($form['prompt']); ?></textarea>
-                            </div>
-                            <div class="field">
-                                <div class="micro"><strong>Tip:</strong><div class="helper">Usa <code>System</code> para fijar tono, rol y reglas. Usa <code>Prompt</code> para la petición puntual que quieres resolver.</div></div>
-                            </div>
+                        <div class="field s2">
+                            <label for="api_key">API key</label>
+                            <input type="password" name="api_key" id="api_key" value="" />
+                            <span class="helper">Si lo dejas vacío, usa la de <code>config.php</code>.</span>
                         </div>
-                    </div>
-
-                    <div class="action-bar flow-span-12">
-                        <div class="action-copy">
-                            <strong>Flujo recomendado</strong>
-                            <span class="helper">1. Elige proveedor. 2. Ajusta parámetros. 3. Escribe system y prompt. 4. Envía la consulta.</span>
-                        </div>
-                        <button type="submit" class="button">Consultar modelo</button>
                     </div>
                 </div>
-            </form>
-        </section>
 
-        <aside class="sticky-stack">
-            <div class="side">
-                <h3>Theme Console</h3>
-                <span class="theme-pill" id="theme_status">Oscuro / Arc Reactor</span>
-                <p id="theme_hint">Paleta oscura con metal rojo, acentos dorados y reactor azul. El botón superior cambia el tema y lo persiste en <code>localStorage</code>.</p>
+                <div class="form-section flow-span-4">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Paso 2</div>
+                            <h3>Runtime Tune</h3>
+                            <div class="section-note">Ajusta respuesta, longitud y espera sin abrir paneles extra.</div>
+                        </div>
+                        <span class="badge">Lean Controls</span>
+                    </div>
+                    <div class="section-grid">
+                        <div class="field s4">
+                            <label for="temperature">Temperature</label>
+                            <input type="text" name="temperature" id="temperature" value="<?php echo h($form['temperature']); ?>" />
+                        </div>
+                        <div class="field s4">
+                            <label for="max_tokens">Max tokens</label>
+                            <input type="text" name="max_tokens" id="max_tokens" value="<?php echo h($form['max_tokens']); ?>" />
+                        </div>
+                        <div class="field s4">
+                            <label for="timeout">Timeout</label>
+                            <input type="text" name="timeout" id="timeout" value="<?php echo h($form['timeout']); ?>" />
+                            <span class="helper">Segundos máximos para la llamada HTTP.</span>
+                        </div>
+                        <div class="field">
+                            <div class="micro"><strong>Uso recomendado:</strong><div class="helper">Temperatura baja para respuestas más estables; aumenta <code>max_tokens</code> sólo cuando necesites más longitud.</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section flow-span-12">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Paso 3</div>
+                            <h3>Prompt Workspace</h3>
+                            <div class="section-note">La cabina queda centrada en el flujo guiado: reglas del asistente arriba y tarea concreta al lado.</div>
+                        </div>
+                        <span class="badge">Prompt Guided</span>
+                    </div>
+                    <div class="section-grid">
+                        <div class="field s6">
+                            <label for="system">System prompt</label>
+                            <textarea name="system" id="system"><?php echo h($form['system']); ?></textarea>
+                        </div>
+                        <div class="field s6">
+                            <label for="prompt">Prompt</label>
+                            <textarea name="prompt" id="prompt"><?php echo h($form['prompt']); ?></textarea>
+                        </div>
+                        <div class="field">
+                            <div class="micro"><strong>Tip:</strong><div class="helper">Usa <code>System</code> para fijar tono, rol y reglas. Usa <code>Prompt</code> para la petición puntual que quieres resolver.</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-bar flow-span-12">
+                    <div class="action-copy">
+                        <strong>Flujo recomendado</strong>
+                        <span class="helper">1. Elige proveedor. 2. Ajusta parámetros. 3. Escribe system y prompt. 4. Envía la consulta.</span>
+                    </div>
+                    <button type="submit" class="button">Consultar modelo</button>
+                </div>
             </div>
-            <div class="side">
-                <h3>Quick Flow</h3>
-                <ul class="mini-list">
-                    <li>Proveedor: el selector autocompleta la Base URL oficial.</li>
-                    <li>Modelo: puedes aceptar el sugerido o escribir uno específico.</li>
-                    <li>Prompt: define primero el rol y después la instrucción principal.</li>
-                    <li>Envío: la respuesta aparece abajo con telemetría y texto final.</li>
-                </ul>
-            </div>
-            <div class="side"><h3>Build + About</h3><p>Versión activa: <strong><?php echo h($projectMeta['version']); ?></strong></p><p><?php echo h($projectMeta['name']); ?><br />Creado por <?php echo h($projectMeta['author']); ?><br /><?php echo h($projectMeta['year']); ?> Derechos Reservados</p><p>Esta versión se usa para la app, el tag Git y el release automático.</p></div>
-        </aside>
-    </div>
+        </form>
+    </section>
 
     <?php if ($response !== null) { ?>
         <section class="panel response" style="margin-top:22px;">

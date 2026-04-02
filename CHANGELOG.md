@@ -1,5 +1,12 @@
 # Changelog
 
+## V0.2.3
+
+- eliminación de la sidebar vertical en favor de una franja superior de tarjetas utilitarias
+- compactación adicional del hero y del formulario para aprovechar mejor el ancho disponible
+- reorganización del formulario en `Connection Matrix`, `Runtime Tune` y `Prompt Workspace`
+- documentación sincronizada con la nueva cabina densa y orientada a escritorio
+
 ## V0.2.2
 
 - compactación de la GUI para reducir espacio desperdiciado en desktop
